@@ -11,6 +11,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #121212;
             color: #ffffff;
+            scroll-behavior: smooth; /* Enables smooth scrolling */
         }
 
         header {
@@ -23,7 +24,6 @@
         header h1 {
             font-size: 2.5rem;
             margin: 0;
-            animation: fadeIn 1.5s ease-in-out;
         }
 
         nav {
@@ -31,6 +31,9 @@
             padding: 10px;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
@@ -45,8 +48,22 @@
             color: #ff6347;
         }
 
+        .restaurant-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .menu-section {
             padding: 20px;
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Slide up effect */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .menu-section.visible {
+            opacity: 1; /* Fully visible */
+            transform: translateY(0); /* Reset position */
         }
 
         .menu-section h2 {
@@ -54,7 +71,6 @@
             margin-bottom: 10px;
             border-bottom: 2px solid #ff6347;
             display: inline-block;
-            animation: slideIn 1s ease-in-out;
         }
 
         .menu-item {
@@ -103,43 +119,26 @@
         footer a:hover {
             text-decoration: underline;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(-100%);
-            }
-            to {
-                transform: translateX(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .menu-section h2 {
-                font-size: 1.5rem;
-            }
-
-            .menu-item h3 {
-                font-size: 1.2rem;
-            }
-
-            .menu-item p {
-                font-size: 0.9rem;
-            }
-        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".menu-section");
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -150,6 +149,8 @@
         <a href="#drinks">Boissons</a>
         <a href="#desserts">Desserts</a>
     </nav>
+    <!-- Add the restaurant image below the navigation bar -->
+    <img src="restaurant.jpg" alt="Restaurant du Quaso" class="restaurant-image">
     <main>
         <section id="pizzas" class="menu-section">
             <h2>Pizzas Traditionnelles</h2>
