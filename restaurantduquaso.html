@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant du Quaso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        nav {
+            background-color: #1f1f1f;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff6347;
+        }
+
+        .menu-section {
+            padding: 20px;
+        }
+
+        .menu-section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ff6347;
+            display: inline-block;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .menu-item {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .menu-item h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .menu-item p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            color: #cccccc;
+        }
+
+        .menu-item span {
+            font-weight: 700;
+            color: #ff6347;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+            color: #cccccc;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .menu-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .menu-item h3 {
+                font-size: 1.2rem;
+            }
+
+            .menu-item p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Restaurant du Quaso</h1>
+    </header>
+    <nav>
+        <a href="#pizzas">Pizzas</a>
+        <a href="#drinks">Boissons</a>
+        <a href="#desserts">Desserts</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <main>
+        <section id="pizzas" class="menu-section">
+            <h2>Pizzas Traditionnelles</h2>
+            <div class="menu-item">
+                <h3>Margherita</h3>
+                <p>Tomate, mozzarella, basilic frais <span>10€</span></p>
+            </div>
+            <div class="menu-item">
+                <h3>Quatre Fromages</h3>
+                <p>Tomate, mozzarella, gorgonzola, parmesan, chèvre <span>12€</span></p>
+            </div>
+            <div class="menu-item">
+                <h3>Napolitaine</h3>
+                <p>Tomate, mozzarella, anchois, câpres, olives <span>11€</span></p>
+            </div>
+            <div class="menu-item">
+                <h3>Capricciosa</h3>
+                <p>Tomate, mozzarella, jambon, champignons, artichauts <span>13€</span></p>
+            </div>
+        </section>
+        <section id="drinks" class="menu-section">
+            <h2>Boissons</h2>
+            <div class="menu-item">
+                <h3>Coca-Cola</h3>
+                <p>33cl <span>3€</span></p>
+            </div>
+            <div class="menu-item">
+                <h3>Eau Minérale</h3>
+                <p>50cl <span>2.5€</span></p>
+            </div>
+            <div class="menu-item">
+                <h3>Bière Artisanale</h3>
+                <p>33cl <span>5€</span></p>
+            </div>
+        </section>
+        <section id="desserts" class="menu-section">
+            <h2>Desserts</h2>
+            <div class="menu-item">
+                <h3>Tiramisu</h3>
+                <p>Classique italien <span>6€</span></p>
+            </div>
+            <div class="menu-item">
+                <h3>Macarons</h3>
+                <p>Assortiment de 5 macarons <span>7€</span></p>
+            </div>
+        </section>
+        <section id="special" class="menu-section">
+            <h2>Plat Spécial</h2>
+            <div class="menu-item">
+                <h3>Pizza Truffe</h3>
+                <p>Tomate, mozzarella, crème de truffe, roquette, parmesan <span>18€</span></p>
+            </div>
+        </section>
+    </main>
+    <footer id="contact">
+        <p>Restaurant du Quaso - 123 Rue de la Pizza, Paris</p>
+        <p>Contactez-nous : <a href="mailto:contact@restaurantduquaso.fr">contact@restaurantduquaso.fr</a></p>
+        <p>Téléphone : +33 1 23 45 67 89</p>
+        <p>Michele M.</p>
+    </footer>
+</body>
+</html>
